@@ -16,3 +16,4 @@ app.listen(PORT, () => {
 });
 
 require("./components/routes/users.route.js")(app);
+require("./components/routes/tasks.route.js")(app);

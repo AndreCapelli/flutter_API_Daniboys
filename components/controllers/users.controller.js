@@ -10,13 +10,20 @@ exports.addUser = async (req, res) => {
   if (!phoneNumber)
     return res.status(400).json({ message: "Must contain phoneNumber" });
 
-  const usersDb = db.collection("users");
+  const usersDb = db.collection("users").doc(email);
 
-  const response = await usersDb
-    .doc(email)
-    .set({ name, email, password, phoneNumber });
+  const validation = await usersDb.get();
 
-  res.status(201).json(response);
+  if (validation.data())
+    return res.status(200).json({ message: "EMAIL ALREADY REGISTERED" });
+
+  try {
+    const response = await usersDb.set({ name, email, password, phoneNumber });
+
+    return res.status(200).json({ message: "SUCCESS" });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 };
 
 exports.getUser = async (req, res) => {
@@ -30,9 +37,10 @@ exports.getUser = async (req, res) => {
 
   const response = await usersDb.get();
 
-  if (!response.data()) return res.send(204);
+  if (!response.data())
+    return res.status(200).json({ message: "INVALID CREDENTIALS" });
 
   if (response.data().password == password)
     return res.status(200).json(response.data());
-  else return res.status(401).json({ message: "Senha inválida" });
+  else return res.status(200).json({ message: "INVALID CREDENTIALS" });
 };
