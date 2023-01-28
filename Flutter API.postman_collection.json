@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "fe09ad43-3b0b-4390-a214-b45b101b99bf",
+		"name": "Flutter API",
+		"description": "Add novos users, login com suas credenciais.\n\nCRUD completo de tasks para o user logado.\n\nCaso queira testar com o server em cloud, basta alterar a variável {{url}} para {{urlRender}} e manter os endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12787600"
+	},
+	"item": [
+		{
+			"name": "AddUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Capelli\",\r\n    \"email\": \"andrecapelli@gmail.com\",\r\n    \"password\": \"abc123456\",\r\n    \"phoneNumber\": \"99999999\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/addUser",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"addUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateTask",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"fZbNcoviDYtZIReJekg6\",\r\n    \"title\": \"new TAREFAAAAAAAA\",\r\n    \"description\": \"NEWWWWWWWW FEITAAAAAAAAAAAAAAAAAAAAAAA\",\r\n    \"data\": \"28/01/2100\",\r\n    \"completed\": true,\r\n    \"email\": \"andrecapelli@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tasks/updateTask",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"updateTask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTask",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"fZbNcoviDYtZIReJekg6\",\r\n    \"email\": \"andrecapelli@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tasks/deleteTask",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"deleteTask"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllTasks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"dani@hotmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tasks/getAllTasks?email=dani@hotmail.com",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"getAllTasks"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "dani@hotmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"andre2@hotmail.com\",\r\n    \"password\": \"lol@8547as345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/users/getUser",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"getUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/users",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddTask",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Nova TAREFAAAAAAAA\",\r\n    \"description\": \"TAREFA FEITAAAAAAAAAAAAAAAAAAAAAAA\",\r\n    \"data\": \"28/01/2023\",\r\n    \"completed\": false,\r\n    \"email\": \"andrecapelli@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/tasks/addTask",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"tasks",
+						"addTask"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "urlRender",
+			"value": "https://flutter-api-daniboy.onrender.com",
+			"type": "string"
+		}
+	]
+}
