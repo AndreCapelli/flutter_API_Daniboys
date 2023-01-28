@@ -16,7 +16,7 @@ exports.addUser = async (req, res) => {
     .doc(email)
     .set({ name, email, password, phoneNumber });
 
-  res.status(200).json(response);
+  res.status(201).json(response);
 };
 
 exports.getUser = async (req, res) => {
@@ -30,5 +30,9 @@ exports.getUser = async (req, res) => {
 
   const response = await usersDb.get();
 
-  res.status(200).json(response.data());
+  if (!response.data()) return res.send(204);
+
+  if (response.data().password == password)
+    return res.status(200).json(response.data());
+  else return res.status(401).json({ message: "Senha inválida" });
 };
