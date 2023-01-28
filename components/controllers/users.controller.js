@@ -27,7 +27,7 @@ exports.addUser = async (req, res) => {
 };
 
 exports.getUser = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password } = req.query;
 
   if (!email) return res.status(400).json({ message: "Must contain email" });
   if (!password)

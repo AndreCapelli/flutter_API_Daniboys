@@ -22,15 +22,16 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/users/addUser",
+					"raw": "{{urlRender}}/users/addUser",
 					"host": [
-						"{{url}}"
+						"{{urlRender}}"
 					],
 					"path": [
 						"users",
 						"addUser"
 					]
-				}
+				},
+				"description": "Necessário conter no body name, email, password e phoneNumber"
 			},
 			"response": []
 		},
@@ -57,7 +58,8 @@
 						"tasks",
 						"updateTask"
 					]
-				}
+				},
+				"description": "Atualização de task feita pelo email e id, atualizando todos os dados restantes title, description, data e completed"
 			},
 			"response": []
 		},
@@ -84,7 +86,8 @@
 						"tasks",
 						"deleteTask"
 					]
-				}
+				},
+				"description": "Para deletar tem que existir um ID válido e o email a qual ele pertence"
 			},
 			"response": []
 		},
@@ -120,7 +123,8 @@
 							"value": "dani@hotmail.com"
 						}
 					]
-				}
+				},
+				"description": "Email como parametro na url para buscar todas as tasks daquele user"
 			},
 			"response": []
 		},
@@ -142,15 +146,26 @@
 					}
 				},
 				"url": {
-					"raw": "{{url}}/users/getUser",
+					"raw": "{{url}}/users/getUser?email=andre2@hotmail.com&password=lol@8547as345",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"users",
 						"getUser"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "andre2@hotmail.com"
+						},
+						{
+							"key": "password",
+							"value": "lol@8547as345"
+						}
 					]
-				}
+				},
+				"description": "Validação simples de login com email e password"
 			},
 			"response": []
 		},
@@ -167,7 +182,8 @@
 					"path": [
 						"users"
 					]
-				}
+				},
+				"description": "Endpoint teste"
 			},
 			"response": []
 		},
@@ -178,7 +194,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\": \"Nova TAREFAAAAAAAA\",\r\n    \"description\": \"TAREFA FEITAAAAAAAAAAAAAAAAAAAAAAA\",\r\n    \"data\": \"28/01/2023\",\r\n    \"completed\": false,\r\n    \"email\": \"andrecapelli@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"title\": \"TAREFAAAAAAAA\",\r\n    \"description\": \"a\",\r\n    \"data\": \"28/01/2023\",\r\n    \"completed\": false,\r\n    \"email\": \"andrecapelli@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -194,7 +210,8 @@
 						"tasks",
 						"addTask"
 					]
-				}
+				},
+				"description": "Necessário para adicionar a tarefa apenas o email"
 			},
 			"response": []
 		}
@@ -227,7 +244,7 @@
 		},
 		{
 			"key": "urlRender",
-			"value": "https://flutter-api-daniboy.onrender.com",
+			"value": "https://flutterapidaniboys-production.up.railway.app",
 			"type": "string"
 		}
 	]
