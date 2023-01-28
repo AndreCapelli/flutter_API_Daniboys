@@ -18,3 +18,17 @@ exports.addUser = async (req, res) => {
 
   res.status(200).json(response);
 };
+
+exports.getUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email) return res.status(400).json({ message: "Must contain email" });
+  if (!password)
+    return res.status(400).json({ message: "Must contain password" });
+
+  const usersDb = db.collection("users").doc(email);
+
+  const response = await usersDb.get();
+
+  res.status(200).json(response.data());
+};

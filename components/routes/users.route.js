@@ -8,6 +8,7 @@ module.exports = (app) => {
   });
 
   router.post("/addUser", users.addUser);
+  router.get("/getUser", users.getUser);
 
   app.use("/users", router);
 };
