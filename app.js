@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/teste", (req, res) => {
-  res.json({ message: "Welcome", data: { id: 1, user: "aaaaa" } });
+  res.json({ message: "Welcome", data: { id: 1, user: "aaaaa" }, header: req.get('api-key') });
 });
 
 const PORT = process.env.PORT || 3000;
