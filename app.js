@@ -10,6 +10,10 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome - API Daniboys Flutter" });
 });
 
+app.get("/teste", (req, res) => {
+  res.json({ message: "Welcome", data: { id: 1, user: "aaaaa" } });
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
